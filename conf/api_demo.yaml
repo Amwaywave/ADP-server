@@ -1,0 +1,35 @@
+project: adp (API Document Platform)
+author:
+  userName: 用户名
+  email: 邮箱
+name: 用户登录接口
+description: 用户登录接口（系统用户或第三方登录）
+type: POST
+endpoint: /sessions
+request:
+  headers:
+    contentType: application/json
+  params:
+    userName:
+      description: 用户名
+      type: string
+      checks:
+        - rule: len < 5
+          pass: 用户名符合要求
+          reject: 用户名长度不符合要求
+    password:
+      type: string
+      checks:
+        - rule: len < 6
+          pass: 密码符合要求
+          reject: 密码长度不符合要求
+response:
+  status: 200
+  type: json
+  body:
+    message: 登录成功
+    code: 0
+    data:
+      loginToken:
+        type: string
+        description: 用户登录标识
