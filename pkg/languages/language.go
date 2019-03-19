@@ -3,9 +3,13 @@ package languages
 import (
 	"amwaywave.io/adp/server/models"
 	"errors"
+	"github.com/eightpigs/i18n"
 )
 
-var handles = map[string]languageHandle{}
+var (
+	handles             = map[string]languageHandle{}
+	notFoundParserError = errors.New(i18n.Get("language.parse.error.notFoundParser").(string))
+)
 
 type languageHandle interface {
 	// ToAPI is the implementation of the transformation to the API.
@@ -22,7 +26,7 @@ func ToAPI(language string, content []byte, api *models.API) (err error) {
 	if handle, ok := handles[language]; ok {
 		err = handle.ToAPI(content, api)
 	} else {
-		err = errors.New("没有找到该语言的转换实现")
+		err = notFoundParserError
 	}
 	return
 }
@@ -32,6 +36,6 @@ func FromAPI(language string, api *models.API) ([]byte, error) {
 	if handle, ok := handles[language]; ok {
 		return handle.FromAPI(api)
 	} else {
-		return []byte{}, errors.New("没有找到该语言的转换实现")
+		return []byte{}, notFoundParserError
 	}
 }

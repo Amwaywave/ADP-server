@@ -2,6 +2,7 @@ package main
 
 import (
 	"amwaywave.io/adp/server/models"
+	_ "amwaywave.io/adp/server/pkg"
 	"amwaywave.io/adp/server/pkg/languages"
 	"fmt"
 	"io/ioutil"
@@ -25,4 +26,6 @@ func main() {
 
 	fmt.Println(string(newAPI[:]))
 
+	_, e = languages.FromAPI("typescript", &api)
+	panic(e)
 }

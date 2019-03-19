@@ -1,3 +1,5 @@
+github.com/eightpigs/i18n v0.0.0-20190319081359-e211860ab12c h1:Or9Zs3VkSiL1pK7tIbqoyPq8ErN8xWWjsRl8yDhHuvI=
+github.com/eightpigs/i18n v0.0.0-20190319081359-e211860ab12c/go.mod h1:gMeI08Jg6LBadBrNMj/eP4fM8qWfjPBnonM/jWW46Dc=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405 h1:yhCVgyC4o1eVCa2tZl7eS0r+SDo693bJlVdllGtEeKM=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
 gopkg.in/yaml.v2 v2.2.2 h1:ZCJp+EgiOT7lHqUV2J862kp8Qj64Jo6az82+3Td9dZw=
