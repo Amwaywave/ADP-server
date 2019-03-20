@@ -1,0 +1,7 @@
+language:
+  parse:
+    error:
+      notFoundParser: 没有找到该语言的转换实现
+  parsers:
+    java:
+      packageDescription: 包名的描述信息
