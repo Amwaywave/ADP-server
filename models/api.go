@@ -1,5 +1,18 @@
 package models
 
+// APIPartType indicates the type of the API field, and the values include request and response.
+// The type of field that can be used to specify the conversion when parsing an API instance
+type APIPartType int
+
+const (
+	// APIPartType indicates the request and response parts of the API
+	APIPartType_ALL APIPartType = iota
+	// APIPartType_Request represents the request part of the API.
+	APIPartType_Request
+	// APIPartType_Request represents the response part of the API.
+	APIPartType_Response
+)
+
 // API represents the details of an api.
 type API struct {
 	Project     string   `yaml:"project"`

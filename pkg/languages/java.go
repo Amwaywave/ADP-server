@@ -36,7 +36,7 @@ func (java *java) toAPI(content []byte, api *models.API) error {
 	return nil
 }
 
-func (java *java) fromAPI(api *models.API, attrData map[string]string) ([]byte, error) {
+func (java *java) fromAPI(config *ParseConfig) ([]byte, error) {
 	return []byte{}, nil
 }
 

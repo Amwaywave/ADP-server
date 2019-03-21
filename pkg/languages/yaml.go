@@ -21,8 +21,8 @@ func (y *yaml) toAPI(content []byte, api *models.API) (err error) {
 	return
 }
 
-func (y *yaml) fromAPI(api *models.API, attrData map[string]string) ([]byte, error) {
-	return Marshal(api)
+func (y *yaml) fromAPI(config *ParseConfig) ([]byte, error) {
+	return Marshal(config.API)
 }
 
 func (y *yaml) useSelfFromAPI() bool {

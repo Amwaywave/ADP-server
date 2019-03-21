@@ -29,7 +29,12 @@ func TestYaml_ToAPI(t *testing.T) {
 
 func TestYaml_FromAPI(t *testing.T) {
 	api := getAPI()
-	newAPI, err := FromAPI("yaml", &api, nil)
+
+	newAPI, err := FromAPI(&ParseConfig{
+		Language: "yaml",
+		API:      &api,
+		PartType: models.APIPartType_ALL,
+	})
 	if err != nil {
 		t.Error(err)
 	}
@@ -48,9 +53,15 @@ func TestJava_GetExtraAttr(t *testing.T) {
 
 func TestJava_FromAPI(t *testing.T) {
 	api := getAPI()
-	out, e := FromAPI("java", &api, map[string]string{
-		"Package": "io.eightpigs.models",
-		"Indent":  "4",
+
+	out, e := FromAPI(&ParseConfig{
+		Language: "java",
+		API:      &api,
+		PartType: models.APIPartType_Request,
+		AttrData: map[string]string{
+			"Package": "io.eightpigs.models",
+			"Indent":  "4",
+		},
 	})
 	if e != nil {
 		panic(e)
