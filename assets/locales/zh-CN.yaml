@@ -5,3 +5,4 @@ language:
   parsers:
     java:
       packageDescription: 包名的描述信息
+      className: 生成类的类名，为空则使用自动生成规则

@@ -25,8 +25,8 @@ type API struct {
 }
 
 type request struct {
-	Headers map[string]string `yaml:"headers"`
-	Params  map[string]field  `yaml:"params"`
+	Headers map[string]string   `yaml:"headers"`
+	Params  map[string]APIField `yaml:"params"`
 }
 
 type response struct {
@@ -35,7 +35,7 @@ type response struct {
 	Body   map[string]interface{} `yaml:"body"`
 }
 
-type field struct {
+type APIField struct {
 	Type        string      `yaml:"type"`
 	Description string      `yaml:"description"`
 	Checks      []fieldRule `yaml:"checks"`

@@ -18,6 +18,7 @@ request:
           pass: 用户名符合要求
           reject: 用户名长度不符合要求
     password:
+      description: 登录密码
       type: string
       checks:
         - rule: len < 6

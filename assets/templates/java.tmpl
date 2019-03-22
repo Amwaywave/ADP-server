@@ -1,1 +1,26 @@
-package {{.attr.Package}};
+package {{.AttrData.Package}};
+
+/**
+ * {{ .API.Description }}
+ *
+ * Automatically generated using ADP.
+ *
+ * @author ADP <adp@adp.com>
+ * @date {{nowDate}}
+ */
+public class {{firstToUpper .TargetName}} {
+{{range $k, $v := .Fields}}
+    /**
+     * {{ $v.Description}}
+     */
+    private {{firstToUpper $v.Type}} {{$k}};
+{{end -}}
+{{range $k, $v := .Fields}}
+    public {{firstToUpper $v.Type}} get{{firstToUpper $k}}() {
+        return {{$k}};
+    }
+    public void set{{firstToUpper $k}}({{firstToUpper $v.Type}} {{$k}}) {
+        this.{{$k}} = {{$k}};
+    }
+{{- end}}
+}

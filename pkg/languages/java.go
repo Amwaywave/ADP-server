@@ -13,7 +13,8 @@ type extraAttr struct {
 	// Package is the package name for Java.
 	Package string `attr:"required,name:包名,description:$i18n$_language.parsers.java.packageDescription_"`
 	// The indentation style of the code.
-	Indent int `attr:"name:缩进,description:缩进,default: 4"`
+	Indent int    `attr:"name:缩进,description:缩进,default: 4"`
+	Name   string `attr:"name:类名,description:$i18n$_language.parsers.java.className_"`
 }
 
 func init() {
@@ -42,4 +43,8 @@ func (java *java) fromAPI(config *ParseConfig) ([]byte, error) {
 
 func (java *java) useSelfFromAPI() bool {
 	return false
+}
+
+func (java *java) customFuncMap() map[string]interface{} {
+	return map[string]interface{}{}
 }

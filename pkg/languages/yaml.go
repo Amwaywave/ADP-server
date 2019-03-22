@@ -28,3 +28,7 @@ func (y *yaml) fromAPI(config *ParseConfig) ([]byte, error) {
 func (y *yaml) useSelfFromAPI() bool {
 	return true
 }
+
+func (y *yaml) customFuncMap() map[string]interface{} {
+	return map[string]interface{}{}
+}
