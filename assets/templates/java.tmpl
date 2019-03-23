@@ -16,10 +16,12 @@ public class {{firstToUpper .TargetName}} {
      */
     private {{type $v.Type}} {{$k}};
 {{end -}}
-{{range $k, $v := .Fields}}
+{{- range $k, $v := .Fields}}
+
     public {{type $v.Type}} get{{firstToUpper $k}}() {
         return {{$k}};
     }
+
     public void set{{firstToUpper $k}}({{type $v.Type}} {{$k}}) {
         this.{{$k}} = {{$k}};
     }
