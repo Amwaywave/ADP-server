@@ -1,5 +1,6 @@
 package {{.AttrData.Package}};
 
+{{imports .Fields }}
 /**
  * {{ .API.Description }}
  *
@@ -13,13 +14,13 @@ public class {{firstToUpper .TargetName}} {
     /**
      * {{ $v.Description}}
      */
-    private {{firstToUpper $v.Type}} {{$k}};
+    private {{type $v.Type}} {{$k}};
 {{end -}}
 {{range $k, $v := .Fields}}
-    public {{firstToUpper $v.Type}} get{{firstToUpper $k}}() {
+    public {{type $v.Type}} get{{firstToUpper $k}}() {
         return {{$k}};
     }
-    public void set{{firstToUpper $k}}({{firstToUpper $v.Type}} {{$k}}) {
+    public void set{{firstToUpper $k}}({{type $v.Type}} {{$k}}) {
         this.{{$k}} = {{$k}};
     }
 {{- end}}
